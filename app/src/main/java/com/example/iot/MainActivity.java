@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(view -> {
             String name = personName.getText().toString();
             if(TextUtils.isEmpty(name)){
-                Toast.makeText(MainActivity.this, "Please add data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "add some data", Toast.LENGTH_SHORT).show();
             }
             else{
                 myRef.child("Member").setValue(name);
