@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             String name = personName.getText().toString();
             String dob =  age.getText().toString();
             String h = height.getText().toString();
-
+//C2
             if(TextUtils.isEmpty(name)){
                 Toast.makeText(MainActivity.this, "add some data", Toast.LENGTH_SHORT).show();
             }
