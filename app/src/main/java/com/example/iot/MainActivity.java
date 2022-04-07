@@ -59,6 +59,44 @@ public class MainActivity extends AppCompatActivity {
                 userRef.child("DOB").setValue(dob);
                 userRef.child("height").setValue(h);
                 Toast.makeText(MainActivity.this, "Data Added", Toast.LENGTH_SHORT).show();
+
+                userRef.child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            TextBox.setText(String.valueOf(task.getResult().getValue()));
+                        }
+                    }
+                });
+
+                userRef.child("DOB").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            DobBox.setText(String.valueOf(task.getResult().getValue()));
+                        }
+                    }
+                });
+                userRef.child("height").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            HeightBox.setText(String.valueOf(task.getResult().getValue()));
+                        }
+                    }
+                });
             }
         });
 
